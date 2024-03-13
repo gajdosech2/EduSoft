@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bludisko so šípkami</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let grid = [];
+        const cols = 7;
+        const rows = 5;
+        const w = 80;
+        let robot;
+        let end;
+        let arrows = [];
+
+        function setup() {
+            createCanvas(cols * w, rows * w);
+            for (let i = 0; i < cols; i++) {
+                grid[i] = [];
+                for (let j = 0; j < rows; j++) {
+                    grid[i][j] = new Cell(i, j);
+                }
+            }
+
+            // Define walls and end point
+            grid[1][1].wall = true;
+            grid[1][3].wall = true;
+            grid[3][1].wall = true;
+            grid[3][2].wall = true;
+            grid[3][3].wall = true;
+            grid[5][2].wall = true;
+            end = createVector(6, 4); // End point
+
+            robot = new Robot();
+        }
+
+        function draw() {
+            background(255);
+            for (let i = 0; i < cols; i++) {
+                for (let j = 0; j < rows; j++) {
+                    grid[i][j].show();
+                }
+            }
+            for (let arrow of arrows) {
+                arrow.show();
+            }
+            robot.show();
+            robot.move();
+        }
+
+        function mouseClicked() {
+            let x = Math.floor(mouseX / w);
+            let y = Math.floor(mouseY / w);
+            if (x >= 0 && y >= 0 && x < cols && y < rows && !grid[x][y].wall) {
+                let direction = prompt("Enter arrow direction (N, E, S, W):").toUpperCase();
+                if (["N", "E", "S", "W"].includes(direction)) {
+                    arrows.push(new Arrow(x, y, direction));
+                }
+            }
+        }
+
+        class Cell {
+            constructor(i, j) {
+                this.i = i;
+                this.j = j;
+                this.wall = false;
+            }
+
+            show() {
+                let x = this.i * w;
+                let y = this.j * w;
+                stroke(0);
+                noFill();
+                rect(x, y, w, w);
+                if (this.wall) {
+                    fill(150);
+                    rect(x, y, w, w);
+                }
+                if (this.i === end.x && this.j === end.y) {
+                    fill(0, 0, 255);
+                    ellipse(x + w / 2, y + w / 2, w / 2);
+                }
+            }
+        }
+
+        class Robot {
+            constructor() {
+                this.x = 0;
+                this.y = 0;
+                this.dir = "E";
+            }
+
+            show() {
+                let x = this.x * w + w / 2;
+                let y = this.y * w + w / 2;
+                fill(0, 255, 0);
+                triangle(x, y - 15, x - 15, y + 15, x + 15, y + 15);
+            }
+
+            move() {
+                let arrow = arrows.find(a => a.x === this.x && a.y === this.y);
+                if (arrow) {
+                    this.dir = arrow.direction;
+                }
+
+                switch (this.dir) {
+                    case "N":
+                        if (this.y > 0 && !grid[this.x][this.y - 1].wall) this.y--;
+                        else this.dir = "E";
+                        break;
+                    case "E":
+                        if (this.x < cols - 1 && !grid[this.x + 1][this.y].wall) this.x++;
+                        else this.dir = "S";
+                        break;
+                    case "S":
+                        if (this.y < rows - 1 && !grid[this.x][this.y + 1].wall) this.y++;
+                        else this.dir = "W";
+                        break;
+                    case "W":
+                        if (this.x > 0 && !grid[this.x - 1][this.y].wall) this.x--;
+                        else this.dir = "N";
+                        break;
+                }
+            }
+        }
+
+        class Arrow {
+            constructor(x, y, direction) {
+                this.x = x;
+                this.y = y;
+                this.direction = direction;
+            }
+
+            show() {
+                let x = this.x * w + w / 2;
+                let y = this.y * w + w / 2;
+                fill(0);
+                textSize(32);
+                textAlign(CENTER, CENTER);
+                text(this.direction, x, y);
+            }
+        }
+    </script>
+</body>
+</html>
