@@ -11,7 +11,6 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding-top: 50px;
         }
 
         .gui-container {
@@ -41,7 +40,7 @@
 
         .desc {
             display: block;
-            width: 150px;
+            width: 100px;
             text-align: center;
             height: 150px;
             font-size: 32px;
@@ -55,14 +54,13 @@
 <body>    
     <div class="gui-container">
         <div class="desc">Vitaj v aplikácii Šípka!</div>
-        <input id="teacherBtn" class="btn new" type="button" value="Učiteľský Režim" onclick="switchMode()" />
         <label for="fileInput" class="btn">Vybrať Súbor</label>
         <input id="fileInput" style="visibility:hidden;" type="file">
         <input id="pauseResumeBtn" class="btn" type="button" value="Štart" />
-        <input id="generateBtn" style="display: none;" class="btn" type="button" value="Generuj" />
+        <input id="generateBtn" class="btn new" type="button" value="Generuj" />
         <input id="resetBtn" class="btn" type="button" value="Vymaž" />
-        <input id="saveBtn" class="btn" type="button" value="Ulož" />
-        <input id="findBtn" class="btn" type="button" value="Riešenie" style="opacity: 0;"/>
+        <input id="saveBtn" class="btn new" type="button" value="Ulož" />
+        <input id="findBtn" class="btn new" type="button" value="Riešenie" style="opacity: 0;"/>
         <div id="loadingMessage" style="opacity: 0;">Hľadám riešenie...</div>
     </div>
 
@@ -218,13 +216,6 @@ function bruteForceSolve(maze) {
         let failCount = 0;
         let newTry = true;
 
-        function switchMode() {
-            reset();
-            maze = convertToStringArray(true).map(row => row.join('')).join('\n');
-            sessionStorage.setItem('mazeData', maze);
-            window.location.href = 'teacher.html';
-        }  
-
         function saveSolution() {
             maze = convertToStringArray(true).map(row => row.join('')).join('\n');
             const blob = new Blob([maze], { type: 'text/plain' });
@@ -318,62 +309,23 @@ function bruteForceSolve(maze) {
             }, 10); 
         }
 
-        function createRandomGrid() {
-            const randomColumns = Math.floor(Math.random() * (9 - 4 + 1)) + 4;
-            const randomRows = Math.floor(Math.random() * (7 - 4 + 1)) + 4;
-            const wallProbability = (Math.floor(Math.random() * (15 - 5 + 1)) + 5) / 100;
-            const endX = Math.floor(Math.random() * (randomColumns - 1)) + 1;
-            const endY = Math.floor(Math.random() * (randomRows - 1)) + 1;
-
-            let gridString = "";
-            for (let i = 0; i < randomRows; i++) {
-                for (let j = 0; j < randomColumns; j++) {
-                    if (Math.random() < wallProbability && j !== endX && i !== endY && j !== 0 && i !== 0) {
-                        gridString += '#';
-                    } else {
-                        gridString += '.';
-                    }
-                }
-                if (i < randomRows - 1) {
-                    gridString += '\n';
+        function setup() {
+            createCanvas(cols * W + W, rows * W + 2 * W);
+            for (let i = 0; i < rows; i++) {
+                grid[i] = [];
+                for (let j = 0; j < cols; j++) {
+                    grid[i][j] = new Cell(i, j);
                 }
             }
 
-            const gridRows = gridString.split('\n');
-            gridRows[endY] = gridRows[endY].substring(0, endX) + 'E' + gridRows[endY].substring(endX + 1);
-            
-            return gridRows.join('\n');
-        }
-
-        function convertToStringArray(display_robot = false) {
-            let stringGrid = grid.map(row => row.map(cell => cell.wall ? '#' : "."));
-            arrows.forEach(arrow => { stringGrid[arrow.y][arrow.x] = arrow.direction; });
-            stringGrid[end.y][end.x] = 'E';
-            if (display_robot) stringGrid[robot.y][robot.x] = 'R';
-            return stringGrid;
-        }
-
-        function setup() {
-            var mazeData = sessionStorage.getItem('mazeData');
-            if (mazeData) {
-                processGrid(mazeData);
-            } else {
-                createCanvas(cols * W + W, rows * W + 2 * W);
-                for (let i = 0; i < rows; i++) {
-                    grid[i] = [];
-                    for (let j = 0; j < cols; j++) {
-                        grid[i][j] = new Cell(i, j);
-                    }
-                }
-                grid[1][1].wall = true;
-                grid[1][4].wall = true;
-                grid[2][2].wall = true;
-                grid[3][6].wall = true;
-                grid[4][0].wall = true;
-                grid[4][4].wall = true;
-                grid[2][5].wall = true;
-                end = createVector(6, 4);
-            } 
+            grid[1][1].wall = true;
+            grid[1][4].wall = true;
+            grid[2][2].wall = true;
+            grid[3][6].wall = true;
+            grid[4][0].wall = true;
+            grid[4][4].wall = true;
+            grid[2][5].wall = true;
+            end = createVector(6, 4);
 
             reset();
             wrap();
@@ -511,6 +463,41 @@ function bruteForceSolve(maze) {
                 }
                 draggingArrow = null;
             }
+        }
+
+        function createRandomGrid() {
+            const randomColumns = Math.floor(Math.random() * (9 - 4 + 1)) + 4;
+            const randomRows = Math.floor(Math.random() * (7 - 4 + 1)) + 4;
+            const wallProbability = (Math.floor(Math.random() * (15 - 5 + 1)) + 5) / 100;
+            const endX = Math.floor(Math.random() * (randomColumns - 1)) + 1;
+            const endY = Math.floor(Math.random() * (randomRows - 1)) + 1;
+
+            let gridString = "";
+            for (let i = 0; i < randomRows; i++) {
+                for (let j = 0; j < randomColumns; j++) {
+                    if (Math.random() < wallProbability && j !== endX && i !== endY && j !== 0 && i !== 0) {
+                        gridString += '#';
+                    } else {
+                        gridString += '.';
+                    }
+                }
+                if (i < randomRows - 1) {
+                    gridString += '\n';
+                }
+            }
+
+            const gridRows = gridString.split('\n');
+            gridRows[endY] = gridRows[endY].substring(0, endX) + 'E' + gridRows[endY].substring(endX + 1);
+            
+            return gridRows.join('\n');
+        }
+
+        function convertToStringArray(display_robot = false) {
+            let stringGrid = grid.map(row => row.map(cell => cell.wall ? '#' : "."));
+            arrows.forEach(arrow => { stringGrid[arrow.y][arrow.x] = arrow.direction; });
+            stringGrid[end.y][end.x] = 'E';
+            if (display_robot) stringGrid[robot.y][robot.x] = 'R';
+            return stringGrid;
         }
 
         function countArrows(maze) {

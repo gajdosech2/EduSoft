@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrow Maze Game</title>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>-->
+    <script src="p5.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding-top: 50px;
+        }
+
+        .gui-container {
+            padding-bottom: 150px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        button, .btn, .selector {
+            margin: 5px 0; 
+            background-color: darkorange;
+            border: none;
+            color: white;
+            padding: 15px 0px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 150px;
+        }
+
+        button:hover, .btn:hover  { 
+            background-color: orange;
+        }
+
+        .desc {
+            display: block;
+            width: 150px;
+            text-align: center;
+            height: 150px;
+            font-size: 32px;
+        }
+
+        .new {
+            background-color: red;
+        }  
+    </style>
+</head>
+<body>    
+    <div class="gui-container">
+        <div class="desc">Učiteľský režim</div>
+        <input id="studentBtn" class="btn new" type="button" value="Žiacky Režim" onclick="switchMode()" />
+        <label for="fileInput" class="btn">Vybrať Súbor</label>
+        <input id="fileInput" style="visibility:hidden;" type="file">
+        <input id="generateBtn" class="btn new" type="button" value="Generuj" />
+
+        <div class="selector new">
+            <label for="rows">Riadky:</label>
+            <select id="rows">
+                <option value="4">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>
+        </div>
+
+        <div class="selector new">
+            <label for="cols">Stĺpce:</label>
+            <select id="cols">
+                <option value="4">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+        </div>
+
+        <input id="createBtn" class="btn new" type="button" value="Vytvor" />
+        <input id="saveBtn" class="btn" type="button" value="Ulož" />
+    </div>
+
+    <script>
+        const W = 80;
+
+        let grid = [];
+        let rows = 5;
+        let cols = 7;
+        let robot;
+        let end;
+        let draggingEnd = null;
+
+        function switchMode() {
+             maze = convertToStringArray().map(row => row.join('')).join('\n');
+             sessionStorage.setItem('mazeData', maze);
+             window.location.href = 'main.html';
+        }  
+
+        function saveSolution() {
+            maze = convertToStringArray().map(row => row.join('')).join('\n');
+            const blob = new Blob([maze], { type: 'text/plain' });
+
+            console.log("Hello world!");
+
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            const date = new Date();
+            a.download = `maze_${date.getDate()}_${date.getHours()}${date.getMinutes()}.txt`;
+
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+
+        function processGrid(fileContent) {
+            const fileRows = fileContent.split('\n');
+
+            rows = fileRows.length;
+            cols = fileRows[0].length;
+
+            createCanvas(cols * W + W, rows * W + 2 * W);
+
+            grid = [];
+            for (let i = 0; i < rows; i++) {
+                grid[i] = [];
+                const fileCols = fileRows[i].trim().split('');
+                for (let j = 0; j < cols; j++) {
+                    grid[i][j] = new Cell(i, j);
+
+                    if (fileCols[j] === '#') {
+                        grid[i][j].wall = true;
+                    } else if (fileCols[j] === 'E') {
+                        end = createVector(j, i);
+                    }
+                }
+            }
+        }
+
+        function createEmpty() {
+            createCanvas(cols * W + W, rows * W + 2 * W);
+            for (let i = 0; i < rows; i++) {
+                grid[i] = [];
+                for (let j = 0; j < cols; j++) {
+                    grid[i][j] = new Cell(i, j);
+                }
+            }
+            end = createVector(cols - 1, rows - 1);
+        }
+
+        function createRandomGrid() {
+            const cols = Math.floor(Math.random() * (9 - 4 + 1)) + 4;
+            const rows = Math.floor(Math.random() * (7 - 4 + 1)) + 4;
+
+            // Initialize maze grid filled with walls
+            let maze = Array.from({ length: rows }, () => Array.from({ length: cols }, () => '#'));
+
+            // Recursive function to implement maze generation
+            function carve(x, y) {
+                const directions = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+                // Shuffle directions to ensure randomness
+                directions.sort(() => Math.random() - 0.5);
+
+                // Explore each direction
+                directions.forEach(d => {
+                    const nx = x + d[0] * 2, ny = y + d[1] * 2;
+
+                    if (nx >= 0 && nx < cols && ny >= 0 && ny < rows && maze[ny][nx] === '#') {
+                        maze[ny][nx] = '.';
+                        maze[y + d[1]][x + d[0]] = '.';
+                        carve(nx, ny);
+                    }
+                });
+            }
+
+            // Start carving from the upper-left corner
+            maze[0][0] = '.';
+            carve(0, 0);
+
+            // Weighted selection for the end 'E' position more towards the bottom right
+            let weightedEndPositions = [];
+            for (let y = 0; y < rows; y++) {
+                for (let x = 0; x < cols; x++) {
+                    if (maze[y][x] === '.') {
+                        const weight = (x * y) * (x * y);  // Simple weighting: higher weight towards bottom right
+                        for (let i = 0; i < weight; i++) {
+                            weightedEndPositions.push({x, y});
+                        }
+                    }
+                }
+            }
+
+            const endPosition = weightedEndPositions[Math.floor(Math.random() * weightedEndPositions.length)];
+            maze[endPosition.y][endPosition.x] = 'E';  // Set end point
+
+            // Convert the maze array to a string for output
+            return maze.map(row => row.join('')).join('\n');
+        }
+
+        function convertToStringArray() {
+            let stringGrid = grid.map(row => row.map(cell => cell.wall ? '#' : "."));
+            stringGrid[end.y][end.x] = 'E';
+            return stringGrid;
+        }
+
+        function setup() {
+            var mazeData = sessionStorage.getItem('mazeData');
+            if (mazeData) {
+                processGrid(mazeData);
+            } else {
+                createEmpty();
+            } 
+            
+            robot = new Robot();
+
+            document.getElementById('fileInput').addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const fileContent = e.target.result;
+                        processGrid(fileContent);
+                    };
+                    reader.readAsText(file);
+                }
+                event.target.value = '';
+            });
+
+            document.getElementById('generateBtn').addEventListener('click', function() {
+                grid = createRandomGrid();
+                console.log(grid);
+                processGrid(grid)
+            });
+
+            document.getElementById('createBtn').addEventListener('click', function() {
+                rows = document.getElementById('rows').value;
+                cols = document.getElementById('cols').value;
+                createEmpty();
+            });
+
+            document.getElementById('saveBtn').addEventListener('click', function() {
+                saveSolution();
+            });
+        }
+
+        function draw() {
+            background(255);
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    grid[i][j].show();
+                }
+            }
+            robot.show();
+
+            if (draggingEnd) {
+                fill(0, 0, 255);
+                ellipse(mouseX, mouseY, W / 2);
+            }
+        }
+
+        function mousePressed() {
+            let x = Math.floor(mouseX / W);
+            let y = Math.floor(mouseY / W);
+
+            if (end.x == x && end.y == y) {
+                draggingEnd = true;
+                end = createVector(-1, -1);
+            } else if (x >= 0 && y >= 0 && x < cols && y < rows) {
+                grid[y][x].wall = !grid[y][x].wall; 
+            } 
+        }
+
+        function mouseReleased() {
+            if (draggingEnd) {
+                let x = Math.floor(mouseX / W);
+                let y = Math.floor(mouseY / W);
+                if (x >= 0 && y >= 0 && x < cols && y < rows && !grid[y][x].wall) {
+                    end = createVector(x, y);
+                }
+                else {
+                    end = createVector(cols - 1, rows - 1);
+                }
+                draggingEnd = null;
+            }
+        }
+
+        class Cell {
+            constructor(i, j) {
+                this.i = i;
+                this.j = j;
+                this.wall = false;
+            }
+
+            show() {
+                let x = this.j * W;
+                let y = this.i * W;
+                stroke(0);
+                noFill();
+                rect(x, y, W, W);
+                if (this.wall) {
+                    fill(100);
+                    rect(x, y, W, W);
+                }
+                if (this.i === end.y && this.j === end.x) {
+                    fill(0, 0, 255);
+                    ellipse(x + W / 2, y + W / 2, W / 2);
+                }
+            }
+        }
+
+        class Robot {
+            constructor() {
+                this.x = 0;
+                this.y = 0;
+                this.dir = "→";
+            }
+
+            show() {
+                let x = this.x * W + W / 2;
+                let y = this.y * W + W / 2;
+                fill(255, 0, 0);
+
+                let points;
+                points = [ createVector(x - 10, y - 15),
+                           createVector(x - 10, y + 15),
+                           createVector(x + 15, y) ];
+
+                triangle(points[0].x, points[0].y, points[1].x, points[1].y, points[2].x, points[2].y);
+            }
+        }
+    </script>
+</body>
+</html>
