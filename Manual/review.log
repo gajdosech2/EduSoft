@@ -1,16 +1,16 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.14)  14 MAY 2024 21:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.14)  14 MAY 2024 20:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/luk/Documents/EduSoft/Manual/manual.tex
-(/Users/luk/Documents/EduSoft/Manual/manual.tex
+**/Users/luk/Documents/EduSoft/Manual/review.tex
+(/Users/luk/Documents/EduSoft/Manual/review.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(/usr/local/texlive/2024/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count188
 \c@section=\count189
@@ -190,31 +190,68 @@ File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen154
 \Gin@req@width=\dimen155
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen156
+\captionmargin=\dimen157
+\caption@leftmargin=\dimen158
+\caption@rightmargin=\dimen159
+\caption@width=\dimen160
+\caption@indent=\dimen161
+\caption@parindent=\dimen162
+\caption@hangindent=\dimen163
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count280
+\c@continuedfloat=\count281
+Package caption Info: hyperref package is loaded.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count282
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count283
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count284
+\float@exts=\toks21
+\float@box=\box51
+\@float@everytoks=\toks22
+\@floatcapt=\box52
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
+\langwohyphens=\language90
+LaTeX Info: Redefining \_ on input line 43.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/eurosym/eurosym.sty
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box53
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count280
-\l__pdf_internal_box=\box51
-) (/Users/luk/Documents/EduSoft/Manual/manual.aux)
-\openout1 = `manual.aux'.
+\l__color_backend_stack_int=\count285
+\l__pdf_internal_box=\box54
+) (/Users/luk/Documents/EduSoft/Manual/review.aux)
+\openout1 = `review.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -235,12 +272,12 @@ LaTeX Font Info:    ... okay on input line 14.
 * \topmargin=-37.0pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=10.0pt
+* \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=65.0pt
-* \marginparsep=11.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -250,78 +287,143 @@ LaTeX Font Info:    ... okay on input line 14.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 14.
-(/Users/luk/Documents/EduSoft/Manual/manual.out) (/Users/luk/Documents/EduSoft/Manual/manual.out)
+Package hyperref Info: Link coloring OFF on input line 23.
+(/Users/luk/Documents/EduSoft/Manual/review.out) (/Users/luk/Documents/EduSoft/Manual/review.out)
 \@outlinefile=\write3
-\openout3 = `manual.out'.
+\openout3 = `review.out'.
 
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count281
-\scratchdimen=\dimen156
-\scratchbox=\box52
-\nofMPsegments=\count282
-\nofMParguments=\count283
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count284
-\MPscratchDim=\dimen157
-\MPnumerator=\count285
-\makeMPintoPDFobject=\count286
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count286
+\scratchdimen=\dimen164
+\scratchbox=\box55
+\nofMPsegments=\count287
+\nofMParguments=\count288
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count289
+\MPscratchDim=\dimen165
+\MPnumerator=\count290
+\makeMPintoPDFobject=\count291
+\everyMPtoPDFconversion=\toks24
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 17.
+(Font)              <14.4> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 17.
+(Font)              <7> on input line 27.
+<pvr.jpeg, id=28, 855.195pt x 855.195pt>
+File: pvr.jpeg Graphic file (type jpg)
+<use pvr.jpeg>
+Package pdftex.def Info: pvr.jpeg  used on input line 30.
+(pdftex.def)             Requested size: 362.37569pt x 362.37651pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 17.
-<student.png, id=4, 839.135pt x 632.3625pt>
-File: student.png Graphic file (type png)
-<use student.png>
-Package pdftex.def Info: student.png  used on input line 26.
-(pdftex.def)             Requested size: 341.43306pt x 257.3019pt.
- [1
-
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} </Users/luk/Documents/EduSoft/Manual/student.png>]
-<teacher.png, id=18, 1021.8175pt x 669.50125pt>
-File: teacher.png Graphic file (type png)
-<use teacher.png>
-Package pdftex.def Info: teacher.png  used on input line 56.
-(pdftex.def)             Requested size: 341.43306pt x 223.70456pt.
+(Font)              <12> on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 64.
+(Font)              <8> on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 64.
- [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} </Users/luk/Documents/EduSoft/Manual/teacher.png>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 102.
+(Font)              <6> on input line 33.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 33.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 33.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [3] (/Users/luk/Documents/EduSoft/Manual/manual.aux)
+)
+Overfull \hbox (7.32365pt too wide) in paragraph at lines 33--41
+\T1/cmr/m/n/12 Táto plat-forma po-núka moº-nos´ prog-ra-mo-va´ po-mo-cou tvorby po-stup-nosti prí-ka-zov priamo
+ []
+
+[1
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} </Users/luk/Documents/EduSoft/Manual/pvr.jpeg>]
+<screen1.jpg, id=45, 1445.4pt x 1445.4pt>
+File: screen1.jpg Graphic file (type jpg)
+<use screen1.jpg>
+Package pdftex.def Info: screen1.jpg  used on input line 50.
+(pdftex.def)             Requested size: 221.95676pt x 221.93945pt.
+<screen2.jpg, id=46, 1445.4pt x 1445.4pt>
+File: screen2.jpg Graphic file (type jpg)
+<use screen2.jpg>
+Package pdftex.def Info: screen2.jpg  used on input line 54.
+(pdftex.def)             Requested size: 221.95676pt x 221.93945pt.
+<screen3.jpg, id=47, 1445.4pt x 1445.4pt>
+File: screen3.jpg Graphic file (type jpg)
+<use screen3.jpg>
+Package pdftex.def Info: screen3.jpg  used on input line 58.
+(pdftex.def)             Requested size: 221.95676pt x 221.93945pt.
+<screen4.jpg, id=48, 1445.4pt x 1445.4pt>
+File: screen4.jpg Graphic file (type jpg)
+<use screen4.jpg>
+Package pdftex.def Info: screen4.jpg  used on input line 62.
+(pdftex.def)             Requested size: 221.95676pt x 221.93945pt.
+ [2 </Users/luk/Documents/EduSoft/Manual/screen1.jpg> </Users/luk/Documents/EduSoft/Manual/screen2.jpg> </Users/luk/Documents/EduSoft/Manual/screen3.jpg> </Users/luk/Documents/EduSoft/Manual/screen4.jpg>]
+Overfull \hbox (6.66138pt too wide) in paragraph at lines 83--87
+\T1/cmr/m/n/12 ProgrammerVR po-sky-tuje okam-ºitú spätnú väzbu na sek-ven-ciu prí-ka-zov vy-tvo-renú ºia-kom.
+ []
+
+
+Overfull \hbox (10.12999pt too wide) in paragraph at lines 95--98
+\T1/cmr/m/n/12 prog-ra-mo-va-nia, £o za-ru-£uje, ºe ná-ro£-nos´ ap-li-ká-cie je pri-me-raná veku a ne-mala by vy-ºa-do-va´
+ []
+
+
+Overfull \hbox (7.47514pt too wide) in paragraph at lines 100--107
+\T1/cmr/m/n/12 an-ga-ºo-va-nos´ ²tu-den-tov. Vy-u£o-va-nie pro-stred-níc-tvom VR umoº-¬uje zá-bavnú a in-te-rak-tívnu
+ []
+
+
+Overfull \hbox (7.85475pt too wide) in paragraph at lines 116--126
+[]\T1/cmr/m/n/12 Po stránke ovlá-da-te©-nosti do-dr-ºiava ²tan-dardný spô-sob ovlá-da-nia VR ap-li-ká-cií po-mo-cou
+ []
+
+[3]
+Overfull \hbox (34.18109pt too wide) in paragraph at lines 134--139
+[]\T1/cmr/m/n/12 Samotná in-²ta-lá-cia prog-ramu je bez-prob-lé-mová. Prog-ram je do-stupný priamo v za-bu-do-va-nom
+ []
+
+
+Overfull \hbox (19.31169pt too wide) in paragraph at lines 147--153
+\T1/cmr/m/n/12 Rie-²e-nia úloh sú hod-no-tené hviez-di£-kami, £o mo-ti-vuje po-u-ºí-va-te©a k ite-ra-tív-nemu zlep-²o-va-niu.
+ []
+
+
+Overfull \hbox (28.92532pt too wide) in paragraph at lines 147--153
+\T1/cmr/m/n/12 sie-´ovú ko-mu-ni-ká-ciu v sku-pi-no-vom re-ºime pri sú-´a-ºení proti os-tat-ným hrá-£om a ko-la-bo-ra-tív-nom
+ []
+
+[4] (/Users/luk/Documents/EduSoft/Manual/review.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-Package rerunfilecheck Info: File `manual.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `review.out' has not changed.
+(rerunfilecheck)             Checksum: 3D52FAD7D0229FC57E592502E3F87952;972.
  ) 
 Here is how much of TeX's memory you used:
- 10287 strings out of 474116
- 161938 string characters out of 5743682
- 1934187 words of memory out of 5000000
- 32522 multiletter control sequences out of 15000+600000
- 569913 words of font info for 58 fonts, out of 8000000 for 9000
+ 11954 strings out of 474116
+ 193931 string characters out of 5743682
+ 1936187 words of memory out of 5000000
+ 34168 multiletter control sequences out of 15000+600000
+ 569068 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,398b,522s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on /Users/luk/Documents/EduSoft/Manual/manual.pdf (3 pages, 302290 bytes).
+ 75i,8n,79p,324b,449s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on /Users/luk/Documents/EduSoft/Manual/review.pdf (4 pages, 1057592 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  15 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 74 words of extra memory for PDF output out of 10000 (max. 10000000)
 

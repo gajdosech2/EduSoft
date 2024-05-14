@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Arrow Maze Game</title>
+    <title>Učiteľský Režim</title>
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>-->
     <script src="p5.js"></script>
     <style>
@@ -55,12 +55,12 @@
 <body>    
     <div class="gui-container">
         <div class="desc">Učiteľský režim</div>
-        <input id="studentBtn" class="btn new" type="button" value="Žiacky Režim" onclick="switchMode()" />
+        <input id="studentBtn" class="btn" type="button" value="Žiacky Režim" onclick="switchMode()" />
         <label for="fileInput" class="btn">Vybrať Súbor</label>
         <input id="fileInput" style="visibility:hidden;" type="file">
-        <input id="generateBtn" class="btn new" type="button" value="Generuj" />
+        <input id="generateBtn" class="btn" type="button" value="Generuj" />
 
-        <div class="selector new">
+        <div class="selector">
             <label for="rows">Riadky:</label>
             <select id="rows">
                 <option value="4">3</option>
@@ -71,7 +71,7 @@
             </select>
         </div>
 
-        <div class="selector new">
+        <div class="selector">
             <label for="cols">Stĺpce:</label>
             <select id="cols">
                 <option value="4">3</option>
@@ -84,7 +84,7 @@
             </select>
         </div>
 
-        <input id="createBtn" class="btn new" type="button" value="Vytvor" />
+        <input id="createBtn" class="btn" type="button" value="Vytvor" />
         <input id="saveBtn" class="btn" type="button" value="Ulož" />
     </div>
 
